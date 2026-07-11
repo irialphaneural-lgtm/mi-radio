@@ -5,7 +5,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Enlaces oficiales guardados en tu panel de Render
+    # El tubo de audio directo de tu estación (invisible para el usuario)
+    stream_url = "https://zeno.fm"
+    
+    # Enlaces oficiales cargados desde tu panel de Render
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
 
@@ -15,7 +18,7 @@ def home():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MundyChiaps Oficial</title>
+        <title>MundyChiaps Radio Particular</title>
         <style>
             html, body {{
                 margin: 0;
@@ -36,8 +39,8 @@ def home():
                 text-align: center;
                 background: rgba(30, 30, 47, 0.6);
                 padding: 40px 30px;
-                border-radius: 20px;
-                box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+                border-radius: 25px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.6);
                 border: 1px solid rgba(255, 255, 255, 0.05);
                 backdrop-filter: blur(10px);
                 display: flex;
@@ -47,7 +50,7 @@ def home():
             .logo-container {{
                 width: 140px;
                 height: 140px;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
                 border-radius: 20px;
                 overflow: hidden;
                 box-shadow: 0 4px 20px rgba(0, 153, 255, 0.4);
@@ -69,18 +72,45 @@ def home():
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }}
-            p {{
-                color: #8a8ab0;
-                font-size: 0.95rem;
-                margin: 0 0 35px 0;
+            .status {{
+                color: #00ffcc;
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                animation: pulse 2s infinite;
+            }}
+            @keyframes pulse {{
+                0% {{ opacity: 0.6; }}
+                50% {{ opacity: 1; }}
+                100% {{ opacity: 0.6; }}
+            }}
+            .audio-player {{
+                width: 100%;
+                background: #151526;
+                padding: 15px;
+                border-radius: 15px;
+                border: 1px solid rgba(0, 153, 255, 0.2);
+                box-sizing: border-box;
+                margin-bottom: 25px;
+            }}
+            audio {{
+                width: 100%;
+                outline: none;
+            }}
+            .social-bar {{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
             }}
             .btn {{
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 width: 100%;
-                padding: 15px;
-                margin: 10px 0;
+                padding: 14px;
                 border-radius: 12px;
                 text-decoration: none;
                 font-weight: bold;
@@ -104,7 +134,6 @@ def home():
     </head>
     <body>
         <div class="container">
-            <!-- Logotipo vectorial integrado directamente en código libre de errores -->
             <div class="logo-container">
                 <svg viewBox="0 0 100 100" xmlns="http://w3.org">
                     <rect x="10" y="25" width="80" height="60" rx="10" fill="none" stroke="#0099ff" stroke-width="4"/>
@@ -123,10 +152,19 @@ def home():
                 </svg>
             </div>
             <h1>MUNDYCHIAPS</h1>
-            <p>Nuestras Redes Oficiales</p>
+            <div class="status">● Al Aire En Vivo</div>
             
-            <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Página de Facebook</a>
-            <a href="{url_youtube}" target="_blank" class="btn btn-youtube">Canal de YouTube</a>
+            <div class="audio-player">
+                <audio controls preload="none">
+                    <source src="{stream_url}" type="audio/mpeg">
+                    Tu navegador no soporta el audio digital.
+                </audio>
+            </div>
+
+            <div class="social-bar">
+                <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Página de Facebook</a>
+                <a href="{url_youtube}" target="_blank" class="btn btn-youtube">Canal de YouTube</a>
+            </div>
         </div>
     </body>
     </html>

@@ -4,11 +4,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Usamos el formato de Widget Oficial que Zeno sí permite incrustar externamente
-    embed_url = "https://zeno.fm"
-    
-    # Si el reproductor de arriba falla por políticas, este es el widget alternativo de barra:
-    widget_url = "https://zeno.fm"
+    # Enlace de transmisión directo de tu señal de audio pura
+    stream_url = "https://zeno.fm"
     
     url_facebook = "https://facebook.com"
     url_youtube = "https://youtube.com"
@@ -35,19 +32,25 @@ def home():
                 align-items: center;
             }}
             .player-container {{
-                width: 90%;
-                max-width: 500px;
-                height: 250px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                background: #1e1e2f;
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+                border: 1px solid rgba(255,255,255,0.1);
+                text-align: center;
+                width: 80%;
+                max-width: 400px;
             }}
-            iframe {{
+            h1 {{
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+                background: linear-gradient(to right, #00ffcc, #0099ff);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }}
+            audio {{
                 width: 100%;
-                height: 100%;
-                border: none;
-                display: block;
-                border-radius: 15px;
+                margin-top: 10px;
             }}
             .social-bar {{
                 position: fixed;
@@ -80,9 +83,12 @@ def home():
         </style>
     </head>
     <body>
-        <!-- Contenedor con el formato widget aprobado por Zeno -->
+        <!-- Caja del Reproductor Nativo de Audio -->
         <div class="player-container">
-            <iframe src="{widget_url}"></iframe>
+            <h1>MUNDYCHIAPS RADIO</h1>
+            <audio controls autoplay src="{stream_url}">
+                Tu navegador no soporta este reproductor de audio.
+            </audio>
         </div>
 
         <!-- Botones flotantes abajo -->

@@ -8,7 +8,9 @@ def home():
     # Jalamos tus enlaces oficiales guardados en tu panel de Render
     url_facebook = os.environ.get('URL_FACEBOOK', '#')
     url_youtube = os.environ.get('URL_YOUTUBE', '#')
-    url_logo = "https://facebook.com"
+    
+    # Tu nuevo logotipo premium en azul y dorado cargado de forma segura
+    url_logo = "https://githubusercontent.com"
 
     return f'''
     <!DOCTYPE html>
@@ -43,17 +45,17 @@ def home():
                 backdrop-filter: blur(10px);
             }}
             .logo-container {{
-                width: 100px;
-                height: 100px;
-                margin: 0 auto 20px auto;
-                border-radius: 50%;
+                width: 130px;
+                height: 130px;
+                margin: 0 auto 25px auto;
+                border-radius: 15px;
                 overflow: hidden;
-                box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
-                border: 2px solid #00ffcc;
+                box-shadow: 0 4px 20px rgba(0, 153, 255, 0.4);
+                border: 2px solid #0099ff;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #151526;
+                background: #000000;
             }}
             .logo-container img {{
                 width: 100%;
@@ -104,6 +106,7 @@ def home():
     <body>
         <div class="container">
             <div class="logo-container">
+                <!-- Tu nueva televisión premium en azul y dorado -->
                 <img src="{url_logo}" alt="MundyChiaps Logo" onerror="this.src='https://placehold.co'">
             </div>
             <h1>MUNDYCHIAPS</h1>

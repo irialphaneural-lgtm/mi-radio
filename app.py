@@ -4,11 +4,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Enlace directo forzado con HTTPS seguro para encender el audio
-    stream_url = "https://zeno.fm"
+    # Usamos el widget oficial de Zeno que no tiene problemas de seguridad ni de CORS
+    widget_url = "https://zeno.fm"
     
-    url_facebook = "https://facebook.com"
-    url_youtube = "https://youtube.com"
+    url_facebook = "https://www.facebook.com"
+    url_youtube = "https://www.youtube.com"
 
     return f'''
     <!DOCTYPE html>
@@ -32,25 +32,20 @@ def home():
                 align-items: center;
             }}
             .player-container {{
+                width: 90%;
+                max-width: 450px;
+                height: 200px;
                 background: #1e1e2f;
-                padding: 30px;
-                border-radius: 20px;
+                border-radius: 15px;
+                overflow: hidden;
                 box-shadow: 0 8px 32px rgba(0,0,0,0.5);
                 border: 1px solid rgba(255,255,255,0.1);
-                text-align: center;
-                width: 80%;
-                max-width: 400px;
             }}
-            h1 {{
-                font-size: 1.8rem;
-                margin-bottom: 20px;
-                background: linear-gradient(to right, #00ffcc, #0099ff);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }}
-            audio {{
+            iframe {{
                 width: 100%;
-                margin-top: 10px;
+                height: 100%;
+                border: none;
+                display: block;
             }}
             .social-bar {{
                 position: fixed;
@@ -83,13 +78,12 @@ def home():
         </style>
     </head>
     <body>
+        <!-- Contenedor del reproductor oficial de Zeno sin bloqueos -->
         <div class="player-container">
-            <h1>MUNDYCHIAPS RADIO</h1>
-            <audio controls src="{stream_url}">
-                Tu navegador no soporta este reproductor de audio.
-            </audio>
+            <iframe src="{widget_url}"></iframe>
         </div>
 
+        <!-- Botones flotantes abajo -->
         <div class="social-bar">
             <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Facebook</a>
             <a href="{url_youtube}" target="_blank" class="btn btn-youtube">YouTube</a>

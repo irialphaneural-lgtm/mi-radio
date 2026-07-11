@@ -4,9 +4,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Enlace de transmisión directo de tu señal de audio pura
-    url_radio_directo = "https://zeno.fm"
-    
     # Enlaces oficiales exactos de tus páginas de MundyChiaps
     url_facebook = "https://facebook.com"
     url_youtube = "https://youtube.com"
@@ -93,10 +90,6 @@ def home():
             .btn:hover {{
                 transform: translateY(-3px);
             }}
-            .btn-radio {{
-                background: linear-gradient(135deg, #00ffcc, #0055ff);
-                box-shadow: 0 4px 20px rgba(0, 85, 255, 0.4);
-            }}
             .btn-facebook {{
                 background-color: #1877F2;
                 box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
@@ -113,9 +106,8 @@ def home():
                 <img src="{url_logo}" alt="MundyChiaps Logo" onerror="this.src='https://placehold.co'">
             </div>
             <h1>MUNDYCHIAPS</h1>
-            <p>Conéctate a nuestra señal oficial</p>
+            <p>Nuestras Redes Oficiales</p>
             
-            <a href="{url_radio_directo}" target="_blank" class="btn btn-radio">📻 Escuchar Radio En Vivo</a>
             <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Página de Facebook</a>
             <a href="{url_youtube}" target="_blank" class="btn btn-youtube">Canal de YouTube</a>
         </div>

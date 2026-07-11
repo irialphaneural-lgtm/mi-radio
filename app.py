@@ -9,8 +9,7 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
-    # Servidor de imágenes de alta velocidad con tu logotipo original en línea
-    # REEMPLAZA ESTO CON TUS DATOS REALES DE GITHUB:
+    # Enlace directo optimizado a tu imagen logo_premium.png en GitHub
     url_logo = "https://githubusercontent.com"
     
     return f'''

@@ -9,7 +9,7 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', '#')
     url_youtube = os.environ.get('URL_YOUTUBE', '#')
     
-    # Ruta corregida 100% en minúsculas para evitar bloqueos de GitHub
+    # Formato corregido a .png para que cargue tu televisión premium
     url_logo = "https://githubusercontent.com"
 
     return f'''
@@ -45,8 +45,8 @@ def home():
                 backdrop-filter: blur(10px);
             }}
             .logo-container {{
-                width: 130px;
-                height: 130px;
+                width: 140px;
+                height: 140px;
                 margin: 0 auto 25px auto;
                 border-radius: 15px;
                 overflow: hidden;

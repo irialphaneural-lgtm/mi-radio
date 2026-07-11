@@ -1,19 +1,13 @@
-import os
 from flask import Flask
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Buscamos el ID único de tu estación
-    url_zeno = os.environ.get('URL_ZENO', '')
-    url_facebook = os.environ.get('URL_FACEBOOK', '#')
-    url_youtube = os.environ.get('URL_YOUTUBE', '#')
-
-    # Convertimos automáticamente cualquier link en el reproductor web oficial
-    # Extraemos el ID final del stream para armar el widget correcto
-    station_id = url_zeno.split('/')[-1]
-    embed_url = f"https://zeno.fm{station_id}"
+    # Enlaces fijos y directos para evitar cualquier error de comunicación
+    embed_url = "https://zeno.fm"
+    url_facebook = "https://facebook.com"  # Aquí puedes poner tu link real después
+    url_youtube = "https://youtube.com"    # Aquí puedes poner tu link real después
 
     return f'''
     <!DOCTYPE html>
@@ -69,7 +63,7 @@ def home():
         </style>
     </head>
     <body>
-        <!-- Reproductor oficial en formato widget -->
+        <!-- Reproductor forzado sin depender de Render variables -->
         <iframe src="{embed_url}"></iframe>
 
         <!-- Botones flotantes abajo -->

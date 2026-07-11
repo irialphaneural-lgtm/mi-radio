@@ -9,8 +9,8 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', '#')
     url_youtube = os.environ.get('URL_YOUTUBE', '#')
     
-    # Formato corregido a .png para que cargue tu televisión premium
-    url_logo = "https://githubusercontent.com"
+    # Jalamos tu logotipo oficial directamente desde los servidores de Facebook
+    url_logo = "https://facebook.com"
 
     return f'''
     <!DOCTYPE html>
@@ -48,14 +48,14 @@ def home():
                 width: 140px;
                 height: 140px;
                 margin: 0 auto 25px auto;
-                border-radius: 15px;
+                border-radius: 50%;
                 overflow: hidden;
                 box-shadow: 0 4px 20px rgba(0, 153, 255, 0.4);
                 border: 2px solid #0099ff;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #000000;
+                background: #151526;
             }}
             .logo-container img {{
                 width: 100%;

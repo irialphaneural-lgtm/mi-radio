@@ -1,4 +1,14 @@
-"
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    # El widget oficial de Zeno aprobado para incrustar externamente
+    widget_url = "https://zeno.fm"
+    
+    # Enlaces oficiales directos de tus redes sociales
+    url_facebook = "https://facebook.com"
     url_youtube = "https://youtube.com"
 
     return f'''

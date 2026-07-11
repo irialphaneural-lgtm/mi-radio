@@ -1,12 +1,13 @@
+import os
 from flask import Flask
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Enlaces oficiales exactos de tus páginas de MundyChiaps
-    url_facebook = "https://facebook.com"
-    url_youtube = "https://youtube.com"
+    # Jalamos tus enlaces oficiales guardados en tu panel de Render
+    url_facebook = os.environ.get('URL_FACEBOOK', '#')
+    url_youtube = os.environ.get('URL_YOUTUBE', '#')
     url_logo = "https://facebook.com"
 
     return f'''

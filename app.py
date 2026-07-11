@@ -1,13 +1,30 @@
 import os
-from flask import Flask
+import requests
+from flask import Flask, Response, stream_with_context
 
 app = Flask(__name__)
 
+# EL TUBO SECRETO (PROXY DE AUDIO)
+# Tu servidor de Render va por la música a Zeno y le inyecta permisos de primer nivel
+@app.route('/stream.mp3')
+def proxy_stream():
+    zeno_url = "https://zeno.fm"
+    
+    def generate():
+        # Conexión directa de servidor a servidor sin pasar por el navegador
+        r = requests.get(zeno_url, stream=True, timeout=15)
+        for chunk in r.iter_content(chunk_size=4096):
+            yield chunk
+            
+    # Retornamos el audio con cabeceras CORS totalmente abiertas y aprobadas por Google
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "audio/mpeg"
+    }
+    return Response(stream_with_context(generate()), headers=headers)
+
 @app.route('/')
 def home():
-    # El tubo directo de audio puro
-    stream_url = "https://zeno.fm"
-    
     # Tus redes sociales enlazadas desde Render
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
@@ -206,7 +223,8 @@ def home():
         <script>
             var radioAudio = null;
             var isStreaming = false;
-            var streamEndpoint = "{stream_url}";
+            // Apuntamos al proxy seguro de nuestro propio servidor
+            var streamEndpoint = "/stream.mp3";
 
             function toggleRadioStream() {{
                 var pIcon = document.getElementById("playIcon");
@@ -214,40 +232,21 @@ def home():
                 var sText = document.getElementById("statusText");
 
                 if (!isStreaming) {{
-                    sText.innerText = "Conectando al tubo de audio...";
+                    sText.innerText = "Conectando al servidor seguro...";
                     
                     radioAudio = new Audio();
-                    radioAudio.crossOrigin = "anonymous";
-                    radioAudio.src = streamEndpoint + "?cachebuster=" + Date.now();
-                    radioAudio.preload = "none";
+                    radioAudio.src = streamEndpoint + "?t=" + Date.now();
 
                     radioAudio.play().then(function() {{
                         isStreaming = true;
                         pIcon.style.display = "none";
                         pauseIcon.style.display = "block";
-                        sText.innerText = "Sintonizando señal digital en vivo";
+                        sText.innerText = "MundyChiaps transmitiendo en vivo 📻";
                     }}).catch(function(error) {{
-                        console.log("Error de proteccion:", error);
-                        sText.innerText = "Reintentando conexion segura...";
+                        console.log("Error:", error);
+                        sText.innerText = "Estabilizando señal...";
                         radioAudio.src = streamEndpoint;
                         radioAudio.play();
                     }});
                 }} else {{
                     if (radioAudio) {{
-                        radioAudio.pause();
-                        radioAudio.src = "";
-                        radioAudio = null;
-                    }}
-                    isStreaming = false;
-                    pIcon.style.display = "block";
-                    pauseIcon.style.display = "none";
-                    sText.innerText = "Radio en pausa";
-                }}
-            }}
-        </script>
-    </body>
-    </html>
-    '''
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000)

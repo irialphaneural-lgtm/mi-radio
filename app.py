@@ -9,7 +9,7 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', '#')
     url_youtube = os.environ.get('URL_YOUTUBE', '#')
     
-    # Tu nuevo logotipo premium en azul y dorado cargado de forma segura
+    # Ruta corregida 100% en minúsculas para evitar bloqueos de GitHub
     url_logo = "https://githubusercontent.com"
 
     return f'''
@@ -106,7 +106,6 @@ def home():
     <body>
         <div class="container">
             <div class="logo-container">
-                <!-- Tu nueva televisión premium en azul y dorado -->
                 <img src="{url_logo}" alt="MundyChiaps Logo" onerror="this.src='https://placehold.co'">
             </div>
             <h1>MUNDYCHIAPS</h1>

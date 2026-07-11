@@ -82,7 +82,6 @@ def home():
                 letter-spacing: 3px;
             }}
             
-            /* BOTÓN DE AUDIO DE ALTA INGENIERÍA */
             .play-card {{
                 width: 100%;
                 background: rgba(255, 255, 255, 0.03);
@@ -127,7 +126,6 @@ def home():
                 height: 25px;
                 border-left: 6px solid #ffffff;
                 border-right: 6px solid #ffffff;
-                gap: 5px;
             }}
             .player-text {{
                 margin-top: 15px;
@@ -191,7 +189,6 @@ def home():
             <h1>MUNDYCHIAPS</h1>
             <div class="status">● SEÑAL EN VIVO</div>
             
-            <!-- REPRODUCTOR CON CONTROLADOR DIGITAL FLUIDO -->
             <div class="play-card">
                 <button class="custom-play-btn" id="masterPlayBtn" onclick="toggleRadioStream()">
                     <div class="play-icon" id="playIcon"></div>
@@ -206,7 +203,6 @@ def home():
             </div>
         </div>
 
-        <!-- ROMPE-BLOQUEOS AVANZADO (JAVASCRIPT AUTOMÁTICO) -->
         <script>
             var radioAudio = null;
             var isStreaming = false;
@@ -220,21 +216,19 @@ def home():
                 if (!isStreaming) {{
                     sText.innerText = "Conectando al tubo de audio...";
                     
-                    // Inicializamos el objeto forzando permisos cruzados abiertos
                     radioAudio = new Audio();
                     radioAudio.crossOrigin = "anonymous";
                     radioAudio.src = streamEndpoint + "?cachebuster=" + Date.now();
                     radioAudio.preload = "none";
 
-                    radioAudio.play().then(() => {{
+                    radioAudio.play().then(function() {{
                         isStreaming = true;
                         pIcon.style.display = "none";
                         pauseIcon.style.display = "block";
                         sText.innerText = "Sintonizando señal digital en vivo";
-                    }}).catch(error => {{
-                        console.log("Error de protección:", error);
-                        sText.innerText = "Reintentando conexión segura...";
-                        // Segundo intento con bypass forzado
+                    }}).catch(function(error) {{
+                        console.log("Error de proteccion:", error);
+                        sText.innerText = "Reintentando conexion segura...";
                         radioAudio.src = streamEndpoint;
                         radioAudio.play();
                     }});
@@ -247,3 +241,13 @@ def home():
                     isStreaming = false;
                     pIcon.style.display = "block";
                     pauseIcon.style.display = "none";
+                    sText.innerText = "Radio en pausa";
+                }}
+            }}
+        </script>
+    </body>
+    </html>
+    '''
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=10000)

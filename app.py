@@ -5,9 +5,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    # Jalamos tus enlaces oficiales guardados en tu panel de Render
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
-    url_logo = "https://facebook.com"
+    
+    # Servidor de imágenes de alta velocidad con tu logotipo original en línea
+    url_logo = "https://imgbox.com"
 
     return f'''
     <!DOCTYPE html>

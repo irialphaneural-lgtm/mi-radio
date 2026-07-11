@@ -8,7 +8,9 @@ def home():
     # Jalamos tus enlaces oficiales guardados en tu panel de Render
     url_facebook = os.environ.get('URL_FACEBOOK', '#')
     url_youtube = os.environ.get('URL_YOUTUBE', '#')
-    url_logo = "https://githubusercontent.com"
+    
+    # Enlace directo externo infalible para tu nuevo logotipo premium azul y dorado
+    url_logo = "https://ibb.co"
 
     return f'''
     <!DOCTYPE html>

@@ -8,6 +8,7 @@ def home():
     url_radio_zeno = "https://zeno.fm"
     url_facebook = "https://facebook.com"
     url_youtube = "https://youtube.com"
+    url_logo = "https://facebook.com"
 
     return f'''
     <!DOCTYPE html>
@@ -41,18 +42,23 @@ def home():
                 border: 1px solid rgba(255, 255, 255, 0.05);
                 backdrop-filter: blur(10px);
             }}
-            .logo-placeholder {{
-                width: 80px;
-                height: 80px;
-                background: linear-gradient(45deg, #00ffcc, #0099ff);
-                border-radius: 50%;
+            .logo-container {{
+                width: 100px;
+                height: 100px;
                 margin: 0 auto 20px auto;
+                border-radius: 50%;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+                border: 2px solid #00ffcc;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 2rem;
-                font-weight: bold;
-                box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+                background: #151526;
+            }}
+            .logo-container img {{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }}
             h1 {{
                 font-size: 2rem;
@@ -101,11 +107,12 @@ def home():
     </head>
     <body>
         <div class="container">
-            <div class="logo-placeholder">M</div>
+            <div class="logo-container">
+                <img src="{url_logo}" alt="MundyChiaps Logo" onerror="this.src='https://placehold.co'">
+            </div>
             <h1>MUNDYCHIAPS</h1>
             <p>Conéctate a nuestra señal oficial</p>
             
-            <!-- Botones de Enlace Directo Infalibles -->
             <a href="{url_radio_zeno}" target="_blank" class="btn btn-radio">📻 Escuchar Radio En Vivo</a>
             <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Página de Facebook</a>
             <a href="{url_youtube}" target="_blank" class="btn btn-youtube">Canal de YouTube</a>

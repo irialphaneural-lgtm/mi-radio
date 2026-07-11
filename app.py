@@ -9,7 +9,7 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
-    # Enlace directo optimizado a tu imagen logo_premium.png en GitHub
+    # LLAVE DIRECTA: Enlace crudo universal de GitHub sin intermediarios de rama
     url_logo = "https://githubusercontent.com"
     
     return f'''
@@ -50,8 +50,9 @@ def home():
             margin: 0 auto 25px auto;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 153, 255, 0.4);
-            border: 2px solid #0099ff;
+            /* COLOR CORREGIDO: Cian brillante igual al de tu diseño original */
+            box-shadow: 0 0 20px rgba(44, 241, 255, 0.5);
+            border: 3px solid #2cf1ff;
             display: flex;
             align-items: center;
             justify-content: center;

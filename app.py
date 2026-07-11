@@ -1,14 +1,4 @@
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    # Flujo de audio directo y limpio de tu señal de Zeno
-    stream_url = "https://zeno.fm"
-    
-    # Enlaces oficiales con WWW para corregir el desvío en Incógnito
-    url_facebook = "https://facebook.com"
+"
     url_youtube = "https://youtube.com"
 
     return f'''
@@ -33,30 +23,20 @@ def home():
                 align-items: center;
             }}
             .player-container {{
+                width: 90%;
+                max-width: 450px;
+                height: 150px;
                 background: #1e1e2f;
-                padding: 35px;
-                border-radius: 20px;
+                border-radius: 15px;
+                overflow: hidden;
                 box-shadow: 0 8px 32px rgba(0,0,0,0.5);
                 border: 1px solid rgba(255,255,255,0.1);
-                text-align: center;
-                width: 85%;
-                max-width: 400px;
             }}
-            h1 {{
-                font-size: 1.8rem;
-                margin-top: 0;
-                margin-bottom: 5px;
-                background: linear-gradient(to right, #00ffcc, #0099ff);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }}
-            p {{
-                color: #a0a0b8;
-                margin-bottom: 25px;
-                font-size: 0.9rem;
-            }}
-            audio {{
+            iframe {{
                 width: 100%;
+                height: 100%;
+                border: none;
+                display: block;
             }}
             .social-bar {{
                 position: fixed;
@@ -89,15 +69,12 @@ def home():
         </style>
     </head>
     <body>
+        <!-- Reproductor oficial incrustado -->
         <div class="player-container">
-            <h1>MUNDYCHIAPS</h1>
-            <p>Señal Digital en Vivo</p>
-            <audio controls crossorigin="anonymous">
-                <source src="{stream_url}" type="audio/mpeg">
-                Tu navegador no soporta este reproductor de audio.
-            </audio>
+            <iframe src="{widget_url}" allow="autoplay; encrypted-media"></iframe>
         </div>
 
+        <!-- Botones flotantes directos a tus páginas -->
         <div class="social-bar">
             <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Facebook</a>
             <a href="{url_youtube}" target="_blank" class="btn btn-youtube">YouTube</a>

@@ -5,12 +5,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Jalamos tus enlaces oficiales guardados en tu panel de Render
-    url_facebook = os.environ.get('URL_FACEBOOK', '#')
-    url_youtube = os.environ.get('URL_YOUTUBE', '#')
+    # Enlaces oficiales guardados en tu panel de Render
+    url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
+    url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
-    # Jalamos tu logotipo oficial directamente desde los servidores de Facebook
-    url_logo = "https://facebook.com"
+    # Imagen oficial limpia directa de un servidor de alta velocidad libre de errores
+    url_logo = "https://imgbox.com"
 
     return f'''
     <!DOCTYPE html>
@@ -106,7 +106,7 @@ def home():
     <body>
         <div class="container">
             <div class="logo-container">
-                <img src="{url_logo}" alt="MundyChiaps Logo" onerror="this.src='https://placehold.co'">
+                <img src="{url_logo}" alt="MundyChiaps Logo">
             </div>
             <h1>MUNDYCHIAPS</h1>
             <p>Nuestras Redes Oficiales</p>

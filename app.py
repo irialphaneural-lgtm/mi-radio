@@ -4,10 +4,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Enlaces fijos y directos para evitar cualquier error de comunicación
+    # Usamos el formato de Widget Oficial que Zeno sí permite incrustar externamente
     embed_url = "https://zeno.fm"
-    url_facebook = "https://facebook.com"  # Aquí puedes poner tu link real después
-    url_youtube = "https://youtube.com"    # Aquí puedes poner tu link real después
+    
+    # Si el reproductor de arriba falla por políticas, este es el widget alternativo de barra:
+    widget_url = "https://zeno.fm"
+    
+    url_facebook = "https://facebook.com"
+    url_youtube = "https://youtube.com"
 
     return f'''
     <!DOCTYPE html>
@@ -25,12 +29,25 @@ def home():
                 overflow: hidden;
                 background-color: #0f0f1a;
                 font-family: 'Segoe UI', Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }}
+            .player-container {{
+                width: 90%;
+                max-width: 500px;
+                height: 250px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }}
             iframe {{
                 width: 100%;
-                height: calc(100% - 80px);
+                height: 100%;
                 border: none;
                 display: block;
+                border-radius: 15px;
             }}
             .social-bar {{
                 position: fixed;
@@ -63,8 +80,10 @@ def home():
         </style>
     </head>
     <body>
-        <!-- Reproductor forzado sin depender de Render variables -->
-        <iframe src="{embed_url}"></iframe>
+        <!-- Contenedor con el formato widget aprobado por Zeno -->
+        <div class="player-container">
+            <iframe src="{widget_url}"></iframe>
+        </div>
 
         <!-- Botones flotantes abajo -->
         <div class="social-bar">

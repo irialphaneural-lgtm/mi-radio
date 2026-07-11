@@ -5,10 +5,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Lee las variables guardadas en tu panel de Render
+    # Buscamos el ID único de tu estación
     url_zeno = os.environ.get('URL_ZENO', '')
     url_facebook = os.environ.get('URL_FACEBOOK', '#')
     url_youtube = os.environ.get('URL_YOUTUBE', '#')
+
+    # Convertimos automáticamente cualquier link en el reproductor web oficial
+    # Extraemos el ID final del stream para armar el widget correcto
+    station_id = url_zeno.split('/')[-1]
+    embed_url = f"https://zeno.fm{station_id}"
 
     return f'''
     <!DOCTYPE html>
@@ -24,16 +29,15 @@ def home():
                 width: 100%;
                 height: 100%;
                 overflow: hidden;
-                background-color: #000000;
+                background-color: #0f0f1a;
                 font-family: 'Segoe UI', Arial, sans-serif;
             }}
             iframe {{
                 width: 100%;
-                height: 100%;
+                height: calc(100% - 80px);
                 border: none;
                 display: block;
             }}
-            /* Contenedor flotante para los botones abajo */
             .social-bar {{
                 position: fixed;
                 bottom: 20px;
@@ -42,7 +46,7 @@ def home():
                 display: flex;
                 gap: 15px;
                 z-index: 9999;
-                background: rgba(15, 15, 26, 0.8);
+                background: rgba(15, 15, 26, 0.9);
                 padding: 10px 20px;
                 border-radius: 30px;
                 backdrop-filter: blur(5px);
@@ -65,10 +69,10 @@ def home():
         </style>
     </head>
     <body>
-        <!-- Reproductor en pantalla completa -->
-        <iframe src="{url_zeno}"></iframe>
+        <!-- Reproductor oficial en formato widget -->
+        <iframe src="{embed_url}"></iframe>
 
-        <!-- Botones flotantes discretos abajo -->
+        <!-- Botones flotantes abajo -->
         <div class="social-bar">
             <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Facebook</a>
             <a href="{url_youtube}" target="_blank" class="btn btn-youtube">YouTube</a>

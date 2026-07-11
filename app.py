@@ -1,14 +1,5 @@
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    # Usamos el widget oficial de Zeno que no tiene problemas de seguridad ni de CORS
-    widget_url = "https://zeno.fm"
-    
-    url_facebook = "https://www.facebook.com"
-    url_youtube = "https://www.youtube.com"
+"
+    url_youtube = "https://youtube.com"
 
     return f'''
     <!DOCTYPE html>
@@ -83,7 +74,7 @@ def home():
             <iframe src="{widget_url}"></iframe>
         </div>
 
-        <!-- Botones flotantes abajo -->
+        <!-- Botones flotantes corregidos abajo -->
         <div class="social-bar">
             <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Facebook</a>
             <a href="{url_youtube}" target="_blank" class="btn btn-youtube">YouTube</a>

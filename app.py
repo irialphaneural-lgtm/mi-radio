@@ -1,4 +1,14 @@
-"
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    # Flujo de audio limpio y directo de tu señal de Zeno (sin páginas web)
+    stream_url = "https://zeno.fm"
+    
+    # Enlaces oficiales exactos de tus páginas de MundyChiaps
+    url_facebook = "https://facebook.com"
     url_youtube = "https://youtube.com"
 
     return f'''
@@ -23,20 +33,30 @@
                 align-items: center;
             }}
             .player-container {{
-                width: 90%;
-                max-width: 450px;
-                height: 150px;
                 background: #1e1e2f;
-                border-radius: 15px;
-                overflow: hidden;
+                padding: 35px;
+                border-radius: 20px;
                 box-shadow: 0 8px 32px rgba(0,0,0,0.5);
                 border: 1px solid rgba(255,255,255,0.1);
+                text-align: center;
+                width: 85%;
+                max-width: 400px;
             }}
-            iframe {{
+            h1 {{
+                font-size: 1.8rem;
+                margin-top: 0;
+                margin-bottom: 5px;
+                background: linear-gradient(to right, #00ffcc, #0099ff);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }}
+            p {{
+                color: #a0a0b8;
+                margin-bottom: 25px;
+                font-size: 0.9rem;
+            }}
+            audio {{
                 width: 100%;
-                height: 100%;
-                border: none;
-                display: block;
             }}
             .social-bar {{
                 position: fixed;
@@ -69,9 +89,14 @@
         </style>
     </head>
     <body>
-        <!-- Reproductor oficial incrustado -->
+        <!-- Caja del Reproductor Nativo sin bloqueos de Zeno -->
         <div class="player-container">
-            <iframe src="{widget_url}" allow="autoplay; encrypted-media"></iframe>
+            <h1>MUNDYCHIAPS</h1>
+            <p>Señal Digital en Vivo</p>
+            <audio controls autoplay preload="none">
+                <source src="{stream_url}" type="audio/mpeg">
+                Tu navegador no soporta este reproductor de audio.
+            </audio>
         </div>
 
         <!-- Botones flotantes directos a tus páginas -->

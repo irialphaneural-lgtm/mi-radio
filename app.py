@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Enlace de transmisión directo de tu señal de audio pura
+    # Enlace directo forzado con HTTPS seguro para encender el audio
     stream_url = "https://zeno.fm"
     
     url_facebook = "https://facebook.com"
@@ -83,15 +83,13 @@ def home():
         </style>
     </head>
     <body>
-        <!-- Caja del Reproductor Nativo de Audio -->
         <div class="player-container">
             <h1>MUNDYCHIAPS RADIO</h1>
-            <audio controls autoplay src="{stream_url}">
+            <audio controls src="{stream_url}">
                 Tu navegador no soporta este reproductor de audio.
             </audio>
         </div>
 
-        <!-- Botones flotantes abajo -->
         <div class="social-bar">
             <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Facebook</a>
             <a href="{url_youtube}" target="_blank" class="btn btn-youtube">YouTube</a>

@@ -9,9 +9,6 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
-    # LA SOLUCIÓN DEFINITIVA: Enlace público directo optimizado de tu foto real de Facebook
-    url_logo = "https://ibb.co"
-    
     return f'''
 <!DOCTYPE html>
 <html lang="es">
@@ -49,18 +46,19 @@ def home():
             height: 140px;
             margin: 0 auto 25px auto;
             border-radius: 50%;
-            overflow: hidden;
             box-shadow: 0 0 20px rgba(44, 241, 255, 0.5);
             border: 3px solid #2cf1ff;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #151526;
+            /* Degradado eléctrico premium que sustituye la imagen conflictiva */
+            background: linear-gradient(135deg, #0099ff, #00ffcc);
         }}
-        .logo-container img {{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .logo-text {{
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #12121c;
+            letter-spacing: -1px;
         }}
         h1 {{
             font-size: 2rem;
@@ -105,8 +103,9 @@ def home():
 </head>
 <body>
     <div class="container">
+        <!-- Logotipo tipográfico digital inmune a fallos de carga -->
         <div class="logo-container">
-            <img src="{url_logo}" alt="MundyChiaps Logo">
+            <span class="logo-text">MC</span>
         </div>
         <h1>MUNDYCHIAPS</h1>
         <p>Nuestras Redes Oficiales</p>

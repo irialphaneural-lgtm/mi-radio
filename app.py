@@ -1,5 +1,4 @@
 import os
-import time
 from flask import Flask
 
 app = Flask(__name__)
@@ -10,10 +9,8 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
-    # LA LLAVE MAESTRA: el texto convertir a logo oficial de mundychiaps
-    # Este enlace apunta exactamente a tu logo azul y plateado oficial de la radio
-    marcador_tiempo = int(time.time())
-    url_logo = f"https://ibb.co{marcador_tiempo}"
+    # LA LLAVE MAESTRA LOCAL: Tu archivo con el nombre exacto de doble extensión en GitHub
+    url_logo = "https://githubusercontent.com"
     
     return f'''
 <!DOCTYPE html>
@@ -53,7 +50,7 @@ def home():
             margin: 0 auto 25px auto;
             border-radius: 50%;
             overflow: hidden;
-            /* EFECTO PREMIUM: Marco de oro metálico pulido que enmarca tu logo azul */
+            /* EFECTO PREMIUM: Marco de oro metálico pulido */
             border: 5px solid transparent;
             background: linear-gradient(#12121c, #12121c) padding-box,
                         linear-gradient(135deg, #ffd700, #b8860b, #fff3a8, #b8860b) border-box;
@@ -77,7 +74,7 @@ def home():
             font-size: 2rem;
             margin-bottom: 5px;
             letter-spacing: 2px;
-            /* Texto en Oro Líquido reflectante */
+            /* Texto en Oro Líquido "convertir a logo oficial de mundychiaps" */
             background: linear-gradient(to right, #ffd700, #ffb300, #fff3a8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -120,7 +117,7 @@ def home():
 <body>
     <div class="container">
         <div class="logo-container">
-            <!-- Tu logotipo real e institucional de Radio Mundy Chiaps -->
+            <!-- Tu logo oficial cargado de forma interna con el nombre de archivo corregido -->
             <img src="{url_logo}" alt="Radio Mundy Chiaps">
         </div>
         <h1>MUNDYCHIAPS</h1>

@@ -9,8 +9,8 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
-    # LLAVE DIRECTA: Enlace crudo universal de GitHub
-    url_logo = "https://githubusercontent.com"
+    # LA LLAVE DEFINITIVA: Tu foto real de Facebook optimizada y fija para siempre
+    url_logo = "https://ibb.co"
     
     return f'''
 <!DOCTYPE html>
@@ -106,7 +106,7 @@ def home():
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="{url_logo}" alt="MundyChiaps Logo" onerror="this.src='https://placehold.co'">
+            <img src="{url_logo}" alt="MundyChiaps Logo">
         </div>
         <h1>MUNDYCHIAPS</h1>
         <p>Nuestras Redes Oficiales</p>

@@ -9,8 +9,8 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
-    # LA LLAVE DEFINITIVA: Tu foto real de Facebook optimizada y fija para siempre
-    url_logo = "https://ibb.co"
+    # ENLACE DIRECTO UNIVERSAL: Tu imagen real de GitHub sin intermediarios
+    url_logo = "https://githubusercontent.com"
     
     return f'''
 <!DOCTYPE html>

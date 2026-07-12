@@ -9,8 +9,8 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
-    # CORRECCIÓN DEFINITIVA: Apuntando al archivo original .jpg real de tu GitHub
-    url_logo = "https://githubusercontent.com"
+    # LA SOLUCIÓN DEFINITIVA: Enlace público directo optimizado de tu foto real de Facebook
+    url_logo = "https://ibb.co"
     
     return f'''
 <!DOCTYPE html>

@@ -9,6 +9,9 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
+    # LA LLAVE EXACTA: Enlace de alta velocidad de tu logotipo original de la Radio
+    url_logo = "https://ibb.co"
+    
     return f'''
 <!DOCTYPE html>
 <html lang="es">
@@ -42,36 +45,48 @@ def home():
             backdrop-filter: blur(10px);
         }}
         .logo-container {{
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             margin: 0 auto 25px auto;
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(44, 241, 255, 0.5);
-            border: 3px solid #2cf1ff;
+            overflow: hidden;
+            /* EMBELLECEDOR: Borde metálico de oro brillante y reflejo premium */
+            border: 4px solid #ffd700;
+            background: #000000;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Degradado eléctrico premium que sustituye la imagen conflictiva */
-            background: linear-gradient(135deg, #0099ff, #00ffcc);
+            transition: all 0.5s ease;
         }}
-        .logo-text {{
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #12121c;
-            letter-spacing: -1px;
+        .logo-container:hover {{
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(255, 215, 0, 0.7);
+            border-color: #fff3a8;
+        }}
+        .logo-container img {{
+            width: 96%;
+            height: 96%;
+            border-radius: 50%;
+            object-fit: cover;
+            /* Optimización de contraste gráfico para pantallas potentes */
+            filter: contrast(1.1) brightness(1.05);
         }}
         h1 {{
             font-size: 2rem;
             margin-bottom: 5px;
-            letter-spacing: 1px;
-            background: linear-gradient(to right, #00ffcc, #0099ff);
+            letter-spacing: 2px;
+            /* Tipografía degradada en Oro Premium y Cian Eléctrico */
+            background: linear-gradient(to right, #ffd700, #ffb300, #00ffcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 800;
         }}
         p {{
-            color: #8a8ab0;
+            color: #a0a0c0;
             font-size: 0.95rem;
             margin-bottom: 35px;
+            letter-spacing: 1px;
         }}
         .btn {{
             display: flex;
@@ -103,9 +118,9 @@ def home():
 </head>
 <body>
     <div class="container">
-        <!-- Logotipo tipográfico digital inmune a fallos de carga -->
         <div class="logo-container">
-            <span class="logo-text">MC</span>
+            <!-- Cargando tu nuevo logo con los filtros estéticos aplicados -->
+            <img src="{url_logo}" alt="Radio Mundy Chiaps">
         </div>
         <h1>MUNDYCHIAPS</h1>
         <p>Nuestras Redes Oficiales</p>

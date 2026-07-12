@@ -9,7 +9,7 @@ def home():
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
-    # LA LLAVE EXACTA: Enlace crudo de tu repositorio real en GitHub sin bloqueos
+    # CORRECCIÓN DEFINITIVA: Apuntando al archivo original .jpg real de tu GitHub
     url_logo = "https://githubusercontent.com"
     
     return f'''

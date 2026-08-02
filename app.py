@@ -112,7 +112,7 @@ def home():
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="/cabina" alt="Radio Mundy Chiaps">
+            <img src="/cabina.jpg" alt="Radio Mundy Chiaps">
 </div>
         <h1>MUNDYCHIAPS</h1>
         <p>Nuestras Redes Oficiales</p>

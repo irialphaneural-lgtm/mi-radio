@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Enlaces oficiales guardados en tu panel de Render
+    # Enlaces de tus redes sociales que tienes configurados en Render
     url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
 
@@ -54,17 +54,12 @@ def home():
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s ease;
-        }}
-        .logo-container:hover {{
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(255, 215, 0, 0.8);
         }}
         .logo-container img {{
             width: 100%;
             height: 100%;
             object-fit: cover;
-            background-color: #000000;
+            display: block !important;
         }}
         h1 {{
             font-size: 2rem;
@@ -112,8 +107,8 @@ def home():
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="/cabina.jpg" alt="Radio Mundy Chiaps">
-</div>
+            <img src="https://githubusercontent.com" onerror="this.src='https://githubusercontent.com'" alt="Radio Mundy Chiaps">
+        </div>
         <h1>MUNDYCHIAPS</h1>
         <p>Nuestras Redes Oficiales</p>
         <a href="{url_facebook}" target="_blank" class="btn btn-facebook">Página de Facebook</a>

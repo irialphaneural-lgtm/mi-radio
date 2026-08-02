@@ -10,8 +10,8 @@ def home():
     url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
     
     # LA LLAVE MAESTRA LOCAL: Tu archivo con el nombre exacto de doble extensión en GitHub
-    url_logo = "https://githubusercontent.com"
-    
+    url_logo = "logo_premium.png"
+
     return f'''
 <!DOCTYPE html>
 <html lang="es">

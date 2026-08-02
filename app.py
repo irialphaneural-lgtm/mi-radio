@@ -66,12 +66,12 @@ st.markdown("""
         color: #fff3a8;
         font-weight: bold;
     }
-    .founder-link {
+    .founder-link, .wa-link {
         color: #1877F2 !important;
         text-decoration: none !important;
         font-weight: bold;
     }
-    .founder-link:hover {
+    .founder-link:hover, .wa-link:hover {
         text-decoration: underline !important;
         color: #4facfe !important;
     }
@@ -93,10 +93,6 @@ st.markdown("""
     .custom-btn:hover {
         transform: translateY(-3px);
     }
-    .btn-app {
-        background: linear-gradient(135deg, #10b981, #059669);
-        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-    }
     .btn-fb {
         background-color: #1877F2;
         box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
@@ -111,11 +107,11 @@ st.markdown("""
 url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
 url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
 url_pedro_perfil = "https://facebook.com"
-url_descarga_app = "https://www.appcreator24.com/app4114346-4cv160"
+url_whatsapp_chat = "https://wa.me."
 
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
-# Contenedor superior con tu mensaje de bienvenida
+# Contenedor superior con tu mensaje personalizado cubriendo el espacio vacío
 st.markdown("""
     <div style="background: rgba(255, 215, 0, 0.1); border: 1px solid #ffd700; padding: 12px; border-radius: 10px; margin-bottom: 25px; text-align: center;">
         <p style="color: #ffd700; font-weight: bold; margin: 0; font-size: 1.1rem; letter-spacing: 2px;">
@@ -125,23 +121,22 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Tu código nativo del respaldo para centrar la cabina
-coll1, col2, col3 = st.columns()
+coll1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.image("cabina.jpg", width=350)
 
 st.markdown('<p class="main-title">MUNDYCHIAPS</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Emisora virtual en apoyo a compositores emergentes</p>', unsafe_allow_html=True)
 
-# Cuadro oficial de datos
+# Cuadro oficial de datos con enlaces interactivos
 st.markdown(f"""
     <div class="info-box">
-        <p class="info-text">👤 <span class="info-highlight">Fundador y Director:</span> <a href="{url_pedro_perfil}" target="_blank" class="founder-link">Pedro Elsrdelsur</a></p>
+        <p class="info-text">👤 <span class="info-highlight">Fundador y Director:</span> <a href="{url_pedro_perfil}" target="_blank" class="founder-link">Pedro El srdelsur</a></p>
         <p class="info-text">👥 <span class="info-highlight">Subdirector:</span> Raúl Lizarraga</p>
+        <p class="info-text">📞 <span class="info-highlight">Información:</span> <a href="{url_whatsapp_chat}" target="_blank" class="wa-link">+52 9616923850</a></p>
     </div>
 """, unsafe_allow_html=True)
 
-# --- BOTONES DE ENLACES ---
-st.markdown(f'<a href="{url_descarga_app}" target="_blank" class="custom-btn btn-app">⬇️ Descargar App Oficial</a>', unsafe_allow_html=True)
 st.markdown(f'<a href="{url_facebook}" target="_blank" class="custom-btn btn-fb">Página Oficial de Facebook</a>', unsafe_allow_html=True)
 st.markdown(f'<a href="{url_youtube}" target="_blank" class="custom-btn btn-yt">Canal de YouTube</a>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)

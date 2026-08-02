@@ -58,10 +58,6 @@ st.markdown("""
             color: #ffffff !important;
             transition: transform 0.2s, box-shadow 0.2s;
             text-align: center;
-            box-sizing: border-box;
-        }
-        .custom-btn:hover {
-            transform: translateY(-3px);
         }
         .btn-fb {
             background-color: #1877F2;
@@ -79,22 +75,12 @@ url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
 
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
-st.markdown("""
-    <div style="background: rgba(255, 215, 0, 0.1); border: 1px solid #ffd700; padding: 12px; border-radius: 10px; margin-bottom: 25px; text-align: center;">
-        <p style="color: #ffd700; font-weight: bold; margin: 0; font-size: 1.1rem; letter-spacing: 2px;">
-            📢 ¡BIENVENIDOS! SÍGUENOS
-        </p>
-    </div>
-""", unsafe_allow_html=True)
-
-col1, col2, col3 = st.columns()
+col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    st.image("cabina.jpg", use_container_width=True)
+        st.image("cabina.jpg", width=350)
 
 st.markdown('<p class="main-title">MUNDYCHIAPS</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Nuestras Redes Oficiales</p>', unsafe_allow_html=True)
-
 st.markdown(f'<a href="{url_facebook}" target="_blank" class="custom-btn btn-fb">Página de Facebook</a>', unsafe_allow_html=True)
 st.markdown(f'<a href="{url_youtube}" target="_blank" class="custom-btn btn-yt">Canal de YouTube</a>', unsafe_allow_html=True)
-
 st.markdown('</div>', unsafe_allow_html=True)

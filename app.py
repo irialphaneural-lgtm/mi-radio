@@ -66,12 +66,12 @@ st.markdown("""
         color: #fff3a8;
         font-weight: bold;
     }
-    .founder-link, .wa-link {
+    .founder-link {
         color: #1877F2 !important;
         text-decoration: none !important;
         font-weight: bold;
     }
-    .founder-link:hover, .wa-link:hover {
+    .founder-link:hover {
         text-decoration: underline !important;
         color: #4facfe !important;
     }
@@ -107,7 +107,6 @@ st.markdown("""
 url_facebook = os.environ.get('URL_FACEBOOK', 'https://facebook.com')
 url_youtube = os.environ.get('URL_YOUTUBE', 'https://youtube.com')
 url_pedro_perfil = "https://facebook.com"
-url_whatsapp_chat = "https://wa.me."
 
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
@@ -121,19 +120,18 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Tu código nativo del respaldo para centrar la cabina
-coll1, col2, col3 = st.columns([1, 2, 1])
+coll1, col2, col3 = st.columns()
 with col2:
     st.image("cabina.jpg", width=350)
 
 st.markdown('<p class="main-title">MUNDYCHIAPS</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Emisora virtual en apoyo a compositores emergentes</p>', unsafe_allow_html=True)
 
-# Cuadro oficial de datos con enlaces interactivos
+# Cuadro oficial de datos sin teléfono y con el nombre corregido
 st.markdown(f"""
     <div class="info-box">
-        <p class="info-text">👤 <span class="info-highlight">Fundador y Director:</span> <a href="{url_pedro_perfil}" target="_blank" class="founder-link">Pedro El srdelsur</a></p>
+        <p class="info-text">👤 <span class="info-highlight">Fundador y Director:</span> <a href="{url_pedro_perfil}" target="_blank" class="founder-link">Pedro Elsrdelsur</a></p>
         <p class="info-text">👥 <span class="info-highlight">Subdirector:</span> Raúl Lizarraga</p>
-        <p class="info-text">📞 <span class="info-highlight">Información:</span> <a href="{url_whatsapp_chat}" target="_blank" class="wa-link">+52 9616923850</a></p>
     </div>
 """, unsafe_allow_html=True)
 
